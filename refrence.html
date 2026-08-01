@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ample Enterprise | PCB Design &amp; Engineering Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#f7f9fb",
+                      "inverse-surface": "#2d3133",
+                      "on-primary-fixed-variant": "#354767",
+                      "surface-dim": "#d8dadc",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-secondary-fixed-variant": "#5c4300",
+                      "surface-tint": "#4d5f80",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#0a1f3d",
+                      "surface-container": "#eceef0",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "on-background": "#191c1e",
+                      "on-tertiary-fixed-variant": "#2d486d",
+                      "outline-variant": "#c5c6ce",
+                      "outline": "#75777e",
+                      "background": "#f7f9fb",
+                      "surface-container-high": "#e6e8ea",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#eff1f3",
+                      "primary-fixed": "#d6e3ff",
+                      "primary-fixed-dim": "#b4c7ed",
+                      "secondary-container": "#ffc641",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#001c3b",
+                      "on-tertiary-container": "#6e88b1",
+                      "secondary-fixed": "#ffdfa0",
+                      "on-secondary-fixed": "#261a00",
+                      "secondary": "#795900",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#adc8f5",
+                      "inverse-primary": "#b4c7ed",
+                      "on-secondary-container": "#715300",
+                      "surface-bright": "#f7f9fb",
+                      "secondary-fixed-dim": "#f6be39",
+                      "tertiary": "#000614",
+                      "error-container": "#ffdad6",
+                      "primary": "#000617",
+                      "tertiary-container": "#001f41",
+                      "on-primary-container": "#7587ab",
+                      "tertiary-fixed": "#d5e3ff",
+                      "on-primary-fixed": "#061b39",
+                      "on-surface-variant": "#44474e",
+                      "surface-container-low": "#f2f4f6",
+                      "surface-variant": "#e0e3e5",
+                      "on-surface": "#191c1e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "24px",
+                      "margin-desktop": "64px",
+                      "lg": "48px",
+                      "max-width": "1280px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "sm": "12px",
+                      "xl": "80px",
+                      "margin-mobile": "16px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "label-md": ["Inter"],
+                      "display-lg-mobile": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "headline-md": ["30px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .circuit-pattern {
+            background-image: radial-gradient(#ffffff10 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .stepper-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 2px;
+            background-color: #795900;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        .stepper-item:last-child .stepper-line::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Header Navigation -->
+<header class="bg-primary/90 backdrop-blur-md text-on-primary sticky top-0 z-50 border-b border-white/10 shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-max-width mx-auto">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary flex items-center justify-center rounded-lg shadow-inner">
+<span class="material-symbols-outlined text-on-secondary font-bold" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h1 class="text-headline-sm font-headline-sm font-bold text-secondary-fixed leading-tight">AMPLE ENTERPRISE</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-primary-container font-medium">A Pulse of New Dreams</p>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-label-md text-label-md">
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors duration-300" href="#about">About</a>
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors duration-300" href="#expertise">Expertise</a>
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors duration-300" href="#skills">Skills</a>
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors duration-300" href="#process">Work Process</a>
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors duration-300" href="#projects">Projects</a>
+<a class="px-6 py-2 bg-secondary text-on-secondary rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all" href="#contact">Get in Touch</a>
+</nav>
+<button class="md:hidden text-on-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative bg-primary py-xl md:py-32 overflow-hidden">
+<div class="absolute inset-0 circuit-pattern opacity-30"></div>
+
+<div class="relative max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop text-center md:text-left flex flex-col items-center md:items-start">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary/10 border border-secondary/30 rounded-full mb-6">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-secondary text-label-sm uppercase tracking-widest font-bold">Engineering Excellence</span>
+</div>
+<h1 class="font-display-lg text-display-lg md:text-[72px] text-on-primary max-w-3xl leading-tight mb-6">
+                PCB Design Engineer
+            </h1>
+<p class="font-headline-md text-headline-md text-on-primary-container mb-10 max-w-2xl">
+                Reliable <span class="text-secondary">|</span> Precise <span class="text-secondary">|</span> Professional
+            </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="px-10 py-4 bg-secondary text-on-secondary text-label-md font-bold rounded-lg shadow-lg hover:shadow-secondary/20 hover:scale-105 transition-all" href="#contact">
+                    Get in Touch
+                </a>
+<a class="px-10 py-4 border border-outline-variant/30 text-on-primary text-label-md font-bold rounded-lg hover:bg-white/5 transition-all" href="#projects">
+                    View Portfolio
+                </a>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-xl bg-surface" id="about">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7">
+<h2 class="text-headline-md font-headline-md text-primary mb-6">About Ample Enterprise</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                        With years of specialized experience in high-complexity PCB design, Ample Enterprise bridges the gap between conceptual schematic design and manufacturing readiness. We specialize in transforming complex electrical requirements into reliable, high-performance physical hardware. Our approach combines rigorous engineering standards with the agility required for modern product development cycles.
+                    </p>
+<div class="grid grid-cols-2 gap-6">
+<div class="flex flex-col">
+<span class="text-headline-sm font-bold text-secondary">150+</span>
+<span class="text-label-sm text-outline uppercase tracking-wider">Completed Projects</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-bold text-secondary">99%</span>
+<span class="text-label-sm text-outline uppercase tracking-wider">First-Pass Success</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-5">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-md border border-outline-variant/30 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-full -mr-10 -mt-10"></div>
+<h3 class="text-headline-sm font-bold text-primary mb-6">Our Core Standards</h3>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium text-on-surface">High Quality Engineering</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium text-on-surface">Cost Effective Solutions</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium text-on-surface">DFM &amp; DRC Excellence</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium text-on-surface">On-Time Project Delivery</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium text-on-surface">Global Manufacturing Standards</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise Section -->
+<section class="py-xl bg-surface-container-low border-y border-outline-variant/20" id="expertise">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="text-headline-md font-headline-md text-primary mb-4">Technical Expertise</h2>
+<div class="h-1 w-20 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+<div class="group flex gap-6 items-start">
+<div class="w-12 h-12 shrink-0 bg-primary flex items-center justify-center rounded-lg group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-on-primary">schema</span>
+</div>
+<div>
+<h4 class="text-headline-sm font-bold text-primary mb-2">Schematic Design</h4>
+<p class="text-on-surface-variant">Advanced hierarchical schematic capture ensuring logical integrity and clear documentation for complex systems.</p>
+</div>
+</div>
+<div class="group flex gap-6 items-start">
+<div class="w-12 h-12 shrink-0 bg-primary flex items-center justify-center rounded-lg group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-on-primary">layers</span>
+</div>
+<div>
+<h4 class="text-headline-sm font-bold text-primary mb-2">Multi-layer Layout</h4>
+<p class="text-on-surface-variant">Specialized in high-density interconnect (HDI) and complex stackup management for signal integrity.</p>
+</div>
+</div>
+<div class="group flex gap-6 items-start">
+<div class="w-12 h-12 shrink-0 bg-primary flex items-center justify-center rounded-lg group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-on-primary">bolt</span>
+</div>
+<div>
+<h4 class="text-headline-sm font-bold text-primary mb-2">High Voltage Design</h4>
+<p class="text-on-surface-variant">Expertise in creepage and clearance management for power electronics and industrial applications.</p>
+</div>
+</div>
+<div class="group flex gap-6 items-start">
+<div class="w-12 h-12 shrink-0 bg-primary flex items-center justify-center rounded-lg group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-on-primary">precision_manufacturing</span>
+</div>
+<div>
+<h4 class="text-headline-sm font-bold text-primary mb-2">DFM &amp; DRC Analysis</h4>
+<p class="text-on-surface-variant">Rigorous Design for Manufacturing (DFM) checks to ensure seamless fabrication and assembly.</p>
+</div>
+</div>
+</div>.
+</div>
+</section>
+<!-- Skills & Software Section -->
+<section class="py-xl bg-surface" id="skills">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row gap-gutter items-center">
+<div class="w-full md:w-1/3 order-2 md:order-1">
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square bg-surface-container-high flex flex-col items-center justify-center p-6 rounded-lg border border-outline-variant/30 hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-secondary text-4xl mb-3">settings_input_component</span>
+<span class="font-bold text-primary text-center">Cadence Allegro</span>
+</div>
+<div class="aspect-square bg-surface-container-high flex flex-col items-center justify-center p-6 rounded-lg border border-outline-variant/30 hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-secondary text-4xl mb-3">memory</span>
+<span class="font-bold text-primary text-center">OrCAD</span>
+</div>
+<div class="aspect-square bg-surface-container-high flex flex-col items-center justify-center p-6 rounded-lg border border-outline-variant/30 hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-secondary text-4xl mb-3">developer_board</span>
+<span class="font-bold text-primary text-center">KiCad</span>
+</div>
+<div class="aspect-square bg-surface-container-high flex flex-col items-center justify-center p-6 rounded-lg border border-outline-variant/30 hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-secondary text-4xl mb-3">visibility</span>
+<span class="font-bold text-primary text-center">Gerber Viewer</span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-2/3 order-1 md:order-2">
+<div class="relative h-full min-h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A high-resolution, close-up photograph of a modern, complex multi-layer green printed circuit board with gold-plated solder pads and intricate copper trace patterns. Small SMD components like resistors and capacitors are precisely placed near a large integrated circuit. The lighting is crisp and professional, highlighting the metallic reflections of the traces. The aesthetic is clean, technical, and high-end engineering, fitting a corporate design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUymoC1eeNnD7XvQEYi75SGlTRRK-91ugmNStpdUw_6SzkMfjwB0YGhWJr6nyrzioGl0hq4DQIPDWnIfzDrNIoxpzVEgRIFY31phI_X5G8KjNTYubtzAGQZiQxZ2fy-SdA3lTrW9PLtNy3r9fdZiHegHt5BhB9ZYLwl89PNoJKXJRh36DPZT3y2r364ijN46W1cwjLcvoQtg7mlBk_FFnHmjGG_meRl6se6wCYvwcCPyY8bXMhpK_yjQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-10">
+<div>
+<h3 class="text-on-primary text-headline-md font-bold mb-2">Industry Standard Tools</h3>
+<p class="text-on-primary-container max-w-lg">We leverage the most advanced EDA software to ensure precision at every micrometer of your PCB layout.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Work Process Section -->
+<section class="bg-primary-container py-24 relative overflow-hidden" id="process">
+<div class="absolute inset-0 circuit-pattern opacity-10"></div>
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<h2 class="text-headline-md font-headline-md text-on-primary text-center mb-16">Our Proven Workflow</h2>
+<div class="hidden md:flex justify-between relative">
+<!-- Connector Line -->
+<div class="absolute top-8 left-10 right-10 h-[2px] bg-secondary/30"></div>
+<!-- Steps -->
+<div class="flex flex-col items-center group relative z-10 w-32">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 border-4 border-primary-container shadow-lg group-hover:bg-secondary transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-secondary">assignment</span>
+</div>
+<p class="text-on-primary font-bold text-center text-xs uppercase tracking-tighter">Requirement Analysis</p>
+</div>
+<div class="flex flex-col items-center group relative z-10 w-32">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 border-4 border-primary-container shadow-lg group-hover:bg-secondary transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-secondary">schema</span>
+</div>
+<p class="text-on-primary font-bold text-center text-xs uppercase tracking-tighter">Schematic Capture</p>
+</div>
+<div class="flex flex-col items-center group relative z-10 w-32">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 border-4 border-primary-container shadow-lg group-hover:bg-secondary transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-secondary">footprint</span>
+</div>
+<p class="text-on-primary font-bold text-center text-xs uppercase tracking-tighter">Footprint Creation</p>
+</div>
+<div class="flex flex-col items-center group relative z-10 w-32">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 border-4 border-primary-container shadow-lg group-hover:bg-secondary transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-secondary">grid_view</span>
+</div>
+<p class="text-on-primary font-bold text-center text-xs uppercase tracking-tighter">PCB Layout</p>
+</div>
+<div class="flex flex-col items-center group relative z-10 w-32">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 border-4 border-primary-container shadow-lg group-hover:bg-secondary transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-secondary">fact_check</span>
+</div>
+<p class="text-on-primary font-bold text-center text-xs uppercase tracking-tighter">DRC Check</p>
+</div>
+<div class="flex flex-col items-center group relative z-10 w-32">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 border-4 border-primary-container shadow-lg group-hover:bg-secondary transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-secondary">description</span>
+</div>
+<p class="text-on-primary font-bold text-center text-xs uppercase tracking-tighter">Gerber Generation</p>
+</div>
+<div class="flex flex-col items-center group relative z-10 w-32">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 border-4 border-primary-container shadow-lg group-hover:bg-secondary transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-secondary">support</span>
+</div>
+<p class="text-on-primary font-bold text-center text-xs uppercase tracking-tighter">Manufacturing Support</p>
+</div>
+</div>
+<!-- Mobile Stepper -->
+<div class="md:hidden space-y-8">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 shrink-0 bg-white rounded-full flex items-center justify-center font-bold text-primary">1</div>
+<p class="text-on-primary font-medium">Requirement Analysis</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 shrink-0 bg-white rounded-full flex items-center justify-center font-bold text-primary">2</div>
+<p class="text-on-primary font-medium">Schematic &amp; Footprint</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 shrink-0 bg-white rounded-full flex items-center justify-center font-bold text-primary">3</div>
+<p class="text-on-primary font-medium">PCB Layout &amp; Routing</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 shrink-0 bg-white rounded-full flex items-center justify-center font-bold text-primary">4</div>
+<p class="text-on-primary font-medium">Final DRC &amp; Gerber Files</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-xl bg-surface" id="projects">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary mb-2">Featured Projects</h2>
+<p class="text-on-surface-variant">A showcase of technical precision and design reliability.</p>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="w-12 h-12 border border-outline-variant rounded-full flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-12 h-12 border border-outline-variant rounded-full flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Project Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 hover:shadow-xl transition-all duration-500">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A detailed motor driver PCB layout in a professional PCB design software interface. The design shows complex power tracks, heat sink areas, and neatly organized high-current connectors. Background is dark navy representing the design environment. Style is technical, precise, and focused on industrial engineering excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSto9yFlS4x1TBNDFogJOOajTIgsBucdNd0SuY6iAMCSa_YSmCJt9n9SsPMNrQCXsLNG3wcZMuxODg00oglI-6S664pMNhoW98JH1pYG_VlKbyfFUnzt4MS8kidi6cQAdut3BFLMsK-v_1hzwoxFzxffz8JewzC0O7cEYMjwX8lzSlEzlJK848OidEo2Q9goVQ6O09PIpKgou4DG2w7npePvXsHytXla34GDHbwKc2ZnIIBY3VrlLG-Q"/>
+</div>
+<div class="p-6">
+<h4 class="text-headline-sm font-bold text-primary mb-3">Motor Driver PCB</h4>
+<ul class="text-label-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2">• High Current Traces</li>
+<li class="flex items-center gap-2">• Thermal Management</li>
+<li class="flex items-center gap-2">• 4-Layer Architecture</li>
+</ul>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 hover:shadow-xl transition-all duration-500">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close-up of a high-efficiency switched-mode power supply (SMPS) PCB. Features large electrolytic capacitors, a transformer, and meticulously spaced high-voltage isolation barriers. The PCB is green with silver solder finish. Lighting is studio-quality, emphasizing the reliability and robustness of the assembly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrdTeRoAs2Y4ynN_pbl0q90Ve8zVFX6JS-Mjr-nkw8IYMpFJ-sjAQies4TjE85LmBITZxZfYzULZ_qHPf6X_Hrkx05CLLucPU3yYCFRkaMDR8W0hUIuWyDisShJ65jlXPFhXp3ZyFNaQKqCklZbsd857AA3BF4VVxhlTTv7xvm0_swREze-Tiv9bUC7XYHpcAbeR9f-AlG5C75xos1_aiSWzjVFPZ9H45C2x5_U6uyAJFXj77F8WFmdg"/>
+</div>
+<div class="p-6">
+<h4 class="text-headline-sm font-bold text-primary mb-3">Power Supply PCB</h4>
+<ul class="text-label-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2">• AC/DC SMPS Design</li>
+<li class="flex items-center gap-2">• EMI/EMC Optimized</li>
+<li class="flex items-center gap-2">• 2-Layer Compact</li>
+</ul>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 hover:shadow-xl transition-all duration-500">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A modern industrial control board with multiple digital IO interfaces, status LEDs, and a central microcontroller. The layout is extremely clean with perfect 45-degree trace angles and perfectly aligned components. The image has a slight tech-blue tint and modern engineering aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgzxR4vhgQgJJD6yP1ov_9kIN0AjCPNOwhttnwLzIzjAkdl9Bkf1QURJXymqDaY3-iXEBx37ne3fhULJX-cwaa3YiC6KbjmfHTZvHXYRBRaLCVX-JfSCpvv0ngqN9bzGqj3JSovrgnSfN_DqDtqj1FHxv30jNoSQdFIzrOZiLLky0rDzzRMHInvmJgC35npH7LjdYtLrmmacPzQS-kg4uIC2v38s-FlqkKkrIDv0KuEAcrHpGGZpLCyg"/>
+</div>
+<div class="p-6">
+<h4 class="text-headline-sm font-bold text-primary mb-3">Control PCB</h4>
+<ul class="text-label-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2">• MCU Based System</li>
+<li class="flex items-center gap-2">• Isolation Interfaces</li>
+<li class="flex items-center gap-2">• Precision Routing</li>
+</ul>
+</div>
+</div>
+<!-- Project Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 hover:shadow-xl transition-all duration-500">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A custom PCB for a display module and keypad, featuring high-pin count FPC connectors and a matrix of tactile switches. The design is compact and ergonomic. The photo highlights the gold-plated finish on the key pads and the overall thin profile of the board. Very professional and clean appearance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5cXE3cNXijtMbAEnhMNqGAvUW9bB5rmnUuDjxSwMgxppxmtOMebtg_sCNGhhb5eoRfjWlatiYAqdi6uG6zx1gMqNXOxc0mouJ-kVuHEubZD2JT7lvN-EuoQK2rFyi4QHr7Vj33UKb2btHEEfDezUxUBEZjFCgbMx14n-Wl4BBtqnmE6Z71FM9PLlWF-vQa5Sf1mFnGYMmDHv_MuRYFtNlRkT2Gqfs7m_k2hoIUS5hNd4W3W3opnp1zg"/>
+</div>
+<div class="p-6">
+<h4 class="text-headline-sm font-bold text-primary mb-3">HMI Interface PCB</h4>
+<ul class="text-label-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2">• LCD/OLED Integration</li>
+<li class="flex items-center gap-2">• Keypad Matrix</li>
+<li class="flex items-center gap-2">• Ultra-Slim Profile</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Strength & Services -->
+<section class="py-xl bg-surface-container-high">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<div>
+<h2 class="text-headline-md font-bold text-primary mb-8">Technical Strengths</h2>
+<div class="space-y-6">
+<div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-secondary">
+<h5 class="font-bold text-primary mb-2">Signal Integrity (SI)</h5>
+<p class="text-on-surface-variant text-body-md">Controlled impedance routing and crosstalk minimization for high-speed digital signals.</p>
+</div>
+<div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-secondary">
+<h5 class="font-bold text-primary mb-2">Thermal Management</h5>
+<p class="text-on-surface-variant text-body-md">Optimized copper pouring and via stitching for effective heat dissipation in power electronics.</p>
+</div>
+<div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-secondary">
+<h5 class="font-bold text-primary mb-2">DFM Compliance</h5>
+<p class="text-on-surface-variant text-body-md">Ensuring design files adhere to specific manufacturer capability limits to prevent production delays.</p>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-headline-md font-bold text-primary mb-8">Engineering Services</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-center gap-3 p-4 bg-primary-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-on-primary text-label-md">Library Creation</span>
+</div>
+<div class="flex items-center gap-3 p-4 bg-primary-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-on-primary text-label-md">Reverse Engineering</span>
+</div>
+<div class="flex items-center gap-3 p-4 bg-primary-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-on-primary text-label-md">BOM Management</span>
+</div>
+<div class="flex items-center gap-3 p-4 bg-primary-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-on-primary text-label-md">Stack-up Design</span>
+</div>
+<div class="flex items-center gap-3 p-4 bg-primary-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-on-primary text-label-md">Panelization</span>
+</div>
+<div class="flex items-center gap-3 p-4 bg-primary-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-on-primary text-label-md">3D Modeling</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="bg-primary text-on-primary py-xl" id="contact">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+<div>
+<h2 class="text-display-lg-mobile md:text-display-lg font-bold mb-6">Let's Connect</h2>
+<p class="text-on-primary-container text-body-lg mb-10">Have a project in mind? We're ready to help you bring your electronics to life with precision engineering.</p>
+<div class="space-y-6 mb-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">mail</span>
+</div>
+<div>
+<p class="text-label-sm text-on-primary-container uppercase tracking-widest">Email Us</p>
+<p class="text-body-lg font-bold">contact@ampleenterprise.com</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+</div>
+<div>
+<p class="text-label-sm text-on-primary-container uppercase tracking-widest">Office</p>
+<p class="text-body-lg font-bold">Bangalore, Tech Hub, India</p>
+</div>
+</div>
+</div>
+<div class="p-6 bg-white rounded-xl inline-block shadow-lg">
+<img class="w-32 h-32" data-alt="A clean, minimalist QR code for a LinkedIn profile, centered on a white card. The QR code is professional and scannable. It represents the modern way of connecting in a professional engineering environment. The surrounding design is elegant and simple." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVd3XEgecSs6ixzq3FuPby2RS_tFRNvT0FL65rWY3F3sjbOC0nTax2nvclRuwsqXrZonTRb5YR3eIWg-5UIKIPMwBTayumMLZugJeFTrS2JMPPV3gJT2tYU56SzKD8DdkzKx8z71vRgW8YBkb9VQKmn4SKeHwJAhYuH0hzsOUNd83x5ORxW1AstshyglCt2pkTprsnUGoCiOwwGuhUeWjnIDFPR_EsBDugb3yNyjTWUlbU3AsGzH94Ig"/>
+<p class="text-primary text-label-sm font-bold mt-4 text-center">Scan to Connect</p>
+</div>
+</div>
+<div class="bg-white/5 p-8 md:p-10 rounded-2xl border border-white/10 backdrop-blur-sm shadow-2xl">
+<form class="space-y-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-label-sm text-on-primary-container uppercase tracking-widest">Full Name</label>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-on-primary focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm text-on-primary-container uppercase tracking-widest">Email Address</label>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-on-primary focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm text-on-primary-container uppercase tracking-widest">Project Type</label>
+<select class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-on-primary focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all appearance-none">
+<option class="bg-primary text-on-primary">PCB Layout Only</option>
+<option class="bg-primary text-on-primary">Full Design Service</option>
+<option class="bg-primary text-on-primary">Review &amp; DRC</option>
+<option class="bg-primary text-on-primary">Manufacturing Support</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm text-on-primary-container uppercase tracking-widest">Your Message</label>
+<textarea class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-on-primary focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all resize-none" placeholder="Tell us about your project requirements..." rows="4"></textarea>
+</div>
+<button class="w-full py-4 bg-secondary text-on-secondary font-bold rounded-lg shadow-lg hover:shadow-secondary/20 hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                            Send Message
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary-container border-t border-white/10 py-12">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 bg-secondary flex items-center justify-center rounded shadow-inner">
+<span class="material-symbols-outlined text-on-secondary text-lg font-bold" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="text-headline-sm font-bold text-secondary-fixed">AMPLE ENTERPRISE</span>
+</div>
+<div class="flex gap-8 text-on-primary-container/80 text-body-md">
+<a class="hover:text-secondary-fixed transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Email</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/5">
+<p class="text-on-primary-container/60 text-sm">© 2024 Ample Enterprise. A Pulse of New Dreams.</p>
+<div class="flex items-center gap-2">
+<div class="h-px w-8 bg-secondary/30"></div>
+<p class="text-xs text-secondary-fixed/50 uppercase tracking-widest">Precision Engineered</p>
+<div class="h-px w-8 bg-secondary/30"></div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Circuit Line Decorations (Absolute) -->
+<div class="fixed top-1/4 right-0 pointer-events-none opacity-20 hidden lg:block">
+<svg fill="none" height="400" viewbox="0 0 200 400" width="200">
+<path d="M200 20H150V100H100V150H50V250H0" stroke="#795900" stroke-width="2"></path>
+<circle cx="150" cy="20" fill="#795900" r="4"></circle>
+<circle cx="100" cy="100" fill="#795900" r="4"></circle>
+<circle cx="50" cy="150" fill="#795900" r="4"></circle>
+</svg>
+</div>
+<script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group.bg-surface-container-lowest').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+    </script>
+</body></html>
