@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Quote } from "lucide-react";
 import { Card } from "../../components/common/Card/Card";
 import { Container } from "../../components/common/Container/Container";
 import { Reveal } from "../../components/common/Reveal/Reveal";
@@ -20,6 +20,21 @@ const strengths = [
     title: "DFM Compliance",
     description:
       "Release packages aligned to manufacturer constraints to minimize production surprises.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "The design handoff felt organized, practical, and production-aware from day one.",
+    author: "Product Lead",
+    company: "Industrial Automation Client",
+  },
+  {
+    quote:
+      "The board was ready for review with fewer surprises and clearer manufacturing guidance.",
+    author: "Engineering Manager",
+    company: "Electronics Hardware Team",
   },
 ];
 
@@ -79,6 +94,38 @@ export function StrengthsSection() {
               </div>
             </div>
           </Reveal>
+        </div>
+
+        <div className="mt-16">
+          <div className="mb-8 rounded-3xl border border-border bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">
+              Typical project start
+            </p>
+            <p className="mt-2 text-base leading-7 text-primary sm:text-lg">
+              Share the schematic, target requirements, and manufacturing
+              priorities, and the next step is a practical review of stackup,
+              constraints, and delivery plan.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {testimonials.map((item) => (
+              <Card key={item.author} className="p-6">
+                <Quote className="text-accent" size={22} />
+                <p className="mt-4 text-base leading-7 text-primary">
+                  “{item.quote}”
+                </p>
+                <div className="mt-5 border-t border-border pt-4">
+                  <p className="text-sm font-bold text-primary">
+                    {item.author}
+                  </p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted">
+                    {item.company}
+                  </p>
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

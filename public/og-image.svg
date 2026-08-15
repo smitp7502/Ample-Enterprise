@@ -1,0 +1,28 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="32" fill="#091A2A"/>
+  <rect x="80" y="80" width="1040" height="470" rx="28" fill="url(#paint0_linear_1_2)"/>
+  <rect x="120" y="120" width="180" height="180" rx="28" fill="#F6C453"/>
+  <path d="M170 175C170 153.461 187.461 136 209 136H260C281.539 136 299 153.461 299 175V226C299 247.539 281.539 265 260 265H209C187.461 265 170 247.539 170 226V175Z" fill="#091A2A"/>
+  <path d="M188 214L206 198L220 212L242 188L267 214" stroke="#F6C453" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M292 150L318 150" stroke="#F6C453" stroke-width="14" stroke-linecap="round"/>
+  <path d="M292 204L318 204" stroke="#F6C453" stroke-width="14" stroke-linecap="round"/>
+  <path d="M292 258L318 258" stroke="#F6C453" stroke-width="14" stroke-linecap="round"/>
+  <text x="132" y="382" fill="#F7F5F2" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700">Ample Enterprise</text>
+  <text x="132" y="442" fill="#D8E5EF" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="500">PCB Design &amp; Engineering Studio</text>
+  <text x="132" y="490" fill="#D8E5EF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400">Ahmedabad, Gujarat • DFM-aware design • manufacturing support</text>
+  <g opacity="0.7">
+    <rect x="760" y="180" width="260" height="180" rx="18" fill="#0D2335" stroke="#D8E5EF" stroke-opacity="0.25"/>
+    <path d="M822 235H958" stroke="#F6C453" stroke-width="14" stroke-linecap="round"/>
+    <path d="M822 277H906" stroke="#F6C453" stroke-width="14" stroke-linecap="round"/>
+    <path d="M822 319H930" stroke="#F6C453" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="787" cy="235" r="10" fill="#4AE2A0"/>
+    <circle cx="787" cy="277" r="10" fill="#4AE2A0"/>
+    <circle cx="787" cy="319" r="10" fill="#4AE2A0"/>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear_1_2" x1="80" y1="80" x2="1120" y2="550" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C1F2D"/>
+      <stop offset="1" stop-color="#152F44"/>
+    </linearGradient>
+  </defs>
+</svg>

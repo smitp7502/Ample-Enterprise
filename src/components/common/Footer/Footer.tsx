@@ -1,5 +1,4 @@
-import { contactEmail, socialLinks } from "../../../constants/site";
-import { contactPhone } from "../../../constants/site";
+import { socialLinks } from "../../../constants/site";
 import { Container } from "../Container/Container";
 
 export function Footer() {
@@ -29,22 +28,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-6 text-sm text-white/75">
-          Contact:{" "}
-          <a
-            className="text-accent-soft transition hover:text-accent"
-            href={`mailto:${contactEmail}`}
-          >
-            {contactEmail}
-          </a>
-          <p className="mt-2 text-sm text-white/75">
-            Phone:{" "}
-            <a
-              className="text-accent-soft transition hover:text-accent"
-              href={`tel:${contactPhone.replace(/\s+/g, "")}`}
-            >
-              {contactPhone}
-            </a>
-          </p>
+          <span className="text-white/55">Connect</span>
         </div>
         <div className="mt-10 border-t border-white/10 pt-6 text-xs uppercase tracking-[0.28em] text-white/45">
           Precision engineered for modern electronics teams.

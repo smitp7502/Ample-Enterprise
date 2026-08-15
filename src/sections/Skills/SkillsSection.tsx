@@ -1,4 +1,4 @@
-import heroBoard from "../../assets/images/pcb_circute.jpg";
+import heroBoard from "../../assets/images/pcb_circute.webp";
 import { Container } from "../../components/common/Container/Container";
 import { Reveal } from "../../components/common/Reveal/Reveal";
 import { SectionTitle } from "../../components/common/SectionTitle/SectionTitle";

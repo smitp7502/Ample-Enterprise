@@ -1,5 +1,3 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Button } from "../../components/common/Button/Button";
 import { Container } from "../../components/common/Container/Container";
 import { Reveal } from "../../components/common/Reveal/Reveal";
 import { SectionTitle } from "../../components/common/SectionTitle/SectionTitle";
@@ -16,14 +14,6 @@ export function ProjectsSection() {
             title="Selected work with a manufacturing-first mindset"
             description="A compact set of representative builds that show how layout discipline carries through different board classes."
           />
-          <div className="hidden gap-3 lg:flex">
-            <Button variant="outline" size="sm" aria-label="Previous projects">
-              <ArrowLeft size={16} />
-            </Button>
-            <Button variant="outline" size="sm" aria-label="Next projects">
-              <ArrowRight size={16} />
-            </Button>
-          </div>
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">

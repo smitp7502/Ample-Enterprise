@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import companyLogo from "../../../assets/images/Company_logo.png";
+import companyLogo from "../../../assets/images/logo-navbar.webp";
 import { navigationItems } from "../../../constants/site";
 import { useActiveSection } from "../../../hooks/useActiveSection";
 import { cn } from "../../../utils/cn";

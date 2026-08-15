@@ -11,14 +11,15 @@ export const navigationItems: NavigationItem[] = [
 ]
 
 export const socialLinks: SocialLink[] = [
-    { label: 'LinkedIn', href: '#' },
-    { label: 'Email', href: 'mailto:contact@ampleenterprise.com' },
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/nikita-prajapati-753394182' },
+    { label: 'Email', href: 'mailto:projects.amplegroup@gmail.com' },
+    { label: 'WhatsApp', href: 'https://wa.me/919574325494' },
 ]
 
-export const contactEmail = 'contact@ampleenterprise.com'
-export const contactLocation = 'Bangalore, Tech Hub, India'
-export const contactPhone = '+91 95743 25494'
+export const contactEmail = 'projects.amplegroup@gmail.com'
+export const contactLocation = 'Ahmedabad, Gujarat, India'
+export const contactPhone = '+91 9574325494'
 export const contactPhoneDigits = '919574325494'
 export const whatsappLink = `https://wa.me/${contactPhoneDigits}`
+export const linkedInUrl = 'https://linkedin.com/in/nikita-prajapati-753394182'
+export const linkedInLabel = 'Nikita Prajapati'

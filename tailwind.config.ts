@@ -24,6 +24,10 @@ export default {
             boxShadow: {
                 card: '0 16px 45px rgba(15, 23, 42, 0.08)',
             },
+            animation: {
+                'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+                'ping-slower': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite 0.6s',
+            },
         },
     },
 } satisfies Config
